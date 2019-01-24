@@ -7,13 +7,17 @@ import { AppRoutingModule } from './/app-routing.module';
 import { WeeklyOverviewComponent } from './weekly-overview/weekly-overview.component';
 import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
+import { NavComponent } from './nav/nav.component';
+import { NavitagionDirective } from './directive/navitagion.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeeklyOverviewComponent,
     UsersComponent,
-    HomeComponent
+    HomeComponent,
+    NavComponent,
+    NavitagionDirective
   ],
   imports: [
     BrowserModule,
