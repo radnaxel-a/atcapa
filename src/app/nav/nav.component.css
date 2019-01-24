@@ -1,6 +1,7 @@
 nav {
     position: fixed;
     width: 100%;
+    top: 0;
     background-color: rgb(70,130,180);
     text-align: left;
     padding: 7px 15px 7px 31px;
@@ -21,7 +22,7 @@ nav > h1 {
 }
 
 #navigation {
-    background-color: rgb(70,130,180, 0.3);
+    background-color: rgb(70,130,180, 0.9);
     color: black;
     list-style: none;
     width: 169px;

@@ -10,3 +10,8 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+body main {
+    margin-top: 90px;
+    padding: 15px;
+}
