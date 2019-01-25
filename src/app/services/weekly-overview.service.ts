@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { TimeEntry } from "src/app/models/TimeEntry/TimeEntry";
+import { TimeEntryType  } from "src/app/models/TimeEntry/TimeEntryType";
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +16,11 @@ export class WeeklyOverviewService {
   
   constructor(private HTTP: HttpClient) { }
 
-  public getTimeEntryTypes() {
-    return this.HTTP.get(this.API_TIME_ENTRY_TYPES_URL + this.API_KEY);
+  public getTimeEntryTypes(): Observable<TimeEntryType[]> {
+    return this.HTTP.get<TimeEntryType[]>(this.API_TIME_ENTRY_TYPES_URL + this.API_KEY);
   }
 
-  public getTimeEntries() {
-    return this.HTTP.get(this.API_TIME_ENTRIES_URL + this.API_KEY);
+  public getTimeEntries(): Observable<TimeEntry[]> {
+    return this.HTTP.get<any>(this.API_TIME_ENTRIES_URL + this.API_KEY);
   }
 }
