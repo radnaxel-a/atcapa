@@ -6,7 +6,7 @@ nav {
     text-align: left;
     padding: 7px 15px 7px 31px;
     color: white;
-    height: 38px;
+    height: 50px;
 }
 
 nav > i {
@@ -25,14 +25,14 @@ nav > h1 {
     background-color: rgb(70,130,180, 0.9);
     color: black;
     list-style: none;
-    width: 169px;
+    width: 209px;
     padding: 15px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     text-align: left;
     transition: all 0.75s ease;
     z-index: -1;
-    margin-top: -200px;
+    margin-top: -250px;
     opacity: 0;
 }
 

@@ -20,7 +20,7 @@ export class NavitagionDirective {
     
     if (element.style.color == 'black') {
       element.style.color = 'white';
-      ul.style['margin-top']= '-200px';
+      ul.style['margin-top']= '-250px';
       ul.style.opacity = "0";
     }
     else {
