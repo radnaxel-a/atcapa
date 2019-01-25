@@ -4,6 +4,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   selector: '[appNavitagion]'
 })
 export class NavitagionDirective {
+  
   private _element;
 
   constructor(element: ElementRef) {
@@ -27,6 +28,5 @@ export class NavitagionDirective {
       ul.style['margin-top'] = '0';
       ul.style.opacity = "1";
     }
-
   }
 }
