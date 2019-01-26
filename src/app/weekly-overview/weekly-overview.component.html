@@ -59,9 +59,10 @@
         </tr>
       </tbody>
     </table>
+    <h1 class="txt-center" *ngIf="mondayEntries.length == 0">No entries for this day</h1>
   </div>
   <div class="tab-pane fade" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">
-    <table *ngIf="tuesdayEntries" class="table table-bordered">
+    <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
@@ -71,7 +72,7 @@
           <td>Date</td>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="tuesdayEntries">
         <tr *ngFor="let entry of tuesdayEntries">
           <td>{{entry.user.full_name }}</td>
           <td>{{entry.sum / 3600 }}</td>
@@ -81,10 +82,10 @@
         </tr>
       </tbody>
     </table>
-    <h1 *ngIf="!tuesdayEntries">No Entries for this day</h1>
+    <h1 class="txt-center" *ngIf="tuesdayEntries.length == 0">No entries for this day</h1>
   </div>
   <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">
-    <table *ngIf="wednesdayEntries" class="table table-bordered">
+    <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
@@ -94,7 +95,7 @@
           <td>Date</td>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="wednesdayEntries">
         <tr *ngFor="let entry of wednesdayEntries">
           <td>{{entry.user.full_name }}</td>
           <td>{{entry.sum / 3600 }}</td>
@@ -104,10 +105,10 @@
         </tr>
       </tbody>
     </table>
-    <h1 *ngIf="!wednesdayEntries">No Entries</h1>
+    <h1 class="txt-center" *ngIf="wednesdayEntries.length == 0">No entries for this day</h1>
   </div>
   <div class="tab-pane fade" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">
-    <table *ngIf="thursdayEntries" class="table table-bordered">
+    <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
@@ -117,7 +118,7 @@
           <td>Date</td>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="thursdayEntries">
         <tr *ngFor="let entry of thursdayEntries">
           <td>{{entry.user.full_name }}</td>
           <td>{{entry.sum / 3600 }}</td>
@@ -127,20 +128,20 @@
         </tr>
       </tbody>
     </table>
-    <h1 *ngIf="!thursdayEntries">No Entries.</h1>
+    <h1 class="txt-center" *ngIf="thursdayEntries.length == 0">No entries for this day</h1>
   </div>
   <div class="tab-pane fade" id="friday" role="tabpanel" aria-labelledby="friday-tab">
-    <table *ngIf="fridayEntries" class="table table-bordered">
+    <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
           <td>Hours</td>
           <td>Hours Type</td>
           <td>Project</td>
-          <td>Date</td>          
+          <td>Date</td>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="fridayEntries">
         <tr *ngFor="let entry of fridayEntries">
           <td>{{entry.user.full_name }}</td>
           <td>{{entry.sum / 3600 }}</td>
@@ -150,20 +151,20 @@
         </tr>
       </tbody>
     </table>
-    <h1 *ngIf="!fridayEntries">No Entries</h1>
+    <h1 class="txt-center" *ngIf="fridayEntries.length == 0">No entries for this day</h1>
   </div>
   <div class="tab-pane fade" id="saturday" role="tabpanel" aria-labelledby="saturday-tab">
-    <table *ngIf="saturdayEntries" class="table table-bordered">
+    <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
           <td>Hours</td>
           <td>Hours Type</td>
           <td>Project</td>
-          <td>Date</td>          
+          <td>Date</td>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="saturdayEntries">
         <tr *ngFor="let entry of saturdayEntries">
           <td>{{entry.user.full_name }}</td>
           <td>{{entry.sum / 3600 }}</td>
@@ -173,20 +174,20 @@
         </tr>
       </tbody>
     </table>
-    <h1 *ngIf="!saturdayEntries">No Entries</h1>
+    <h1 class="txt-center" *ngIf="saturdayEntries.length == 0">No entries for this day</h1>
   </div>
   <div class="tab-pane fade" id="sunday" role="tabpanel" aria-labelledby="sunday-tab">
-    <table *ngIf="sundayEntries" class="table table-bordered">
+    <table class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
           <td>Hours</td>
           <td>Hours Type</td>
           <td>Project</td>
-          <td>Date</td>          
+          <td>Date</td>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="sundayEntries">
         <tr *ngFor="let entry of sundayEntries">
           <td>{{entry.user.full_name }}</td>
           <td>{{entry.sum / 3600 }}</td>
@@ -196,6 +197,6 @@
         </tr>
       </tbody>
     </table>
-    <h1 *ngIf="!sundayEntries">No Entries</h1>
+    <h1 class="txt-center" *ngIf="sundayEntries.length == 0">No entries for this day</h1>
   </div>
 </div>
