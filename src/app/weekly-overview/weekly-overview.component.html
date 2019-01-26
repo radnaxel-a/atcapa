@@ -1,4 +1,16 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<div class="row datepicker-container">
+  <div class="col-md-6">
+    <h1>Weekly Overview</h1>
+    <p>Here you can see what your workers have been up to in specific range.</p>
+  </div>
+  <div class="col-md-3 pull-right d-flex p-2 flex-column">
+    <input type="text" placeholder="Range" class="form-control" bsDaterangepicker>
+    <p class="p-1">Pick range here</p>
+  </div>
+</div>
+
+
+<ul class="nav nav-tabs" id="calendar" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="monday-tab" data-toggle="tab" href="#monday" role="tab" aria-controls="monday" aria-selected="true">Monday</a>
   </li>
@@ -22,15 +34,15 @@
   </li>
 </ul>
 
-<div class="tab-content" id="myTabContent">
+<div class="tab-content" id="calendar-content">
   <div class="tab-pane fade show active" id="monday" role="tabpanel" aria-labelledby="monday-tab">Monday
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-            <td>Name</td>
-            <td>Hours</td>
-            <td>Hours Type</td>
-            <td>Project</td>
+          <td>Name</td>
+          <td>Hours</td>
+          <td>Hours Type</td>
+          <td>Project</td>
         </tr>
       </thead>
       <tbody *ngIf="mondayEntries">
@@ -47,10 +59,10 @@
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-            <td>Name</td>
-            <td>Hours</td>
-            <td>Hours Type</td>
-            <td>Project</td>
+          <td>Name</td>
+          <td>Hours</td>
+          <td>Hours Type</td>
+          <td>Project</td>
         </tr>
       </thead>
       <tbody *ngIf="employees">
@@ -60,16 +72,19 @@
           <td>{{employee.email }}</td>
         </tr>
       </tbody>
+      <tbody *ngIf="!employees">
+        <h1>No Record for this day</h1>
+      </tbody>
     </table>
   </div>
   <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">Wednesday
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-            <td>Name</td>
-            <td>Hours</td>
-            <td>Hours Type</td>
-            <td>Project</td>
+          <td>Name</td>
+          <td>Hours</td>
+          <td>Hours Type</td>
+          <td>Project</td>
         </tr>
       </thead>
       <tbody *ngIf="employees">
@@ -85,10 +100,10 @@
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-            <td>Name</td>
-            <td>Hours</td>
-            <td>Hours Type</td>
-            <td>Project</td>
+          <td>Name</td>
+          <td>Hours</td>
+          <td>Hours Type</td>
+          <td>Project</td>
         </tr>
       </thead>
       <tbody *ngIf="employees">
@@ -104,10 +119,10 @@
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-            <td>Name</td>
-            <td>Hours</td>
-            <td>Hours Type</td>
-            <td>Project</td>
+          <td>Name</td>
+          <td>Hours</td>
+          <td>Hours Type</td>
+          <td>Project</td>
         </tr>
       </thead>
       <tbody *ngIf="employees">
@@ -142,10 +157,10 @@
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-            <td>Name</td>
-            <td>Hours</td>
-            <td>Hours Type</td>
-            <td>Project</td>
+          <td>Name</td>
+          <td>Hours</td>
+          <td>Hours Type</td>
+          <td>Project</td>
         </tr>
       </thead>
       <tbody *ngIf="employees">

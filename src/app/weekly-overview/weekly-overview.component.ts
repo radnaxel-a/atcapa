@@ -11,6 +11,7 @@ export class WeeklyOverviewComponent implements OnInit {
 
   private readonly weeklyService: WeeklyOverviewService
   public timeEntries: TimeEntry[] = [];
+  public dateRange: any;
 
   // Day of the week arrays
   public mondayEntries: TimeEntry[] = [];

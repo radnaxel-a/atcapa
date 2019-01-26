@@ -9,6 +9,7 @@ import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { NavitagionDirective } from './directive/navitagion.directive';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavitagionDirective } from './directive/navitagion.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
