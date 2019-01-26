@@ -4,8 +4,11 @@
     <p>Here you can see what your workers have been up to in specific range.</p>
   </div>
   <div class="col-md-3 pull-right d-flex p-2 flex-column">
-    <input type="text" placeholder="Range" class="form-control" bsDaterangepicker>
+    <input #dateRange type="text" placeholder="Range" class="form-control" bsDaterangepicker>
     <p class="p-1">Pick range here</p>
+  </div>
+  <div class="col-md-3">
+    <button (click)="handleEvent(dateRange)" type="button" class="btn btn-primary m-2">Search</button>
   </div>
 </div>
 
@@ -35,14 +38,15 @@
 </ul>
 
 <div class="tab-content" id="calendar-content">
-  <div class="tab-pane fade show active" id="monday" role="tabpanel" aria-labelledby="monday-tab">Monday
-    <table class="table table-striped">
-      <thead class="thead-dark">
+  <div class="tab-pane fade show active" id="monday" role="tabpanel" aria-labelledby="monday-tab">
+    <table class="table table-bordered">
+      <thead class="thead-light">
         <tr>
           <td>Name</td>
           <td>Hours</td>
           <td>Hours Type</td>
           <td>Project</td>
+          <td>Date</td>
         </tr>
       </thead>
       <tbody *ngIf="mondayEntries">
@@ -51,125 +55,147 @@
           <td>{{entry.sum / 3600 }}</td>
           <td>{{entry.time_entry_type.name }}</td>
           <td>{{entry.project.full_name}}</td>
+          <td>{{entry.date}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="tab-pane fade" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">Tuesday
-    <table class="table table-striped">
+  <div class="tab-pane fade" id="tuesday" role="tabpanel" aria-labelledby="tuesday-tab">
+    <table *ngIf="tuesdayEntries" class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
           <td>Hours</td>
           <td>Hours Type</td>
           <td>Project</td>
+          <td>Date</td>
         </tr>
       </thead>
-      <tbody *ngIf="employees">
-        <tr *ngFor="let employee of employees">
-          <td>{{employee.id }}</td>
-          <td>{{employee.full_name }}</td>
-          <td>{{employee.email }}</td>
+      <tbody>
+        <tr *ngFor="let entry of tuesdayEntries">
+          <td>{{entry.user.full_name }}</td>
+          <td>{{entry.sum / 3600 }}</td>
+          <td>{{entry.time_entry_type.name }}</td>
+          <td>{{entry.project.full_name}}</td>
+          <td>{{entry.date}}</td>
         </tr>
       </tbody>
-      <tbody *ngIf="!employees">
-        <h1>No Record for this day</h1>
-      </tbody>
     </table>
+    <h1 *ngIf="!tuesdayEntries">No Entries for this day</h1>
   </div>
-  <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">Wednesday
-    <table class="table table-striped">
+  <div class="tab-pane fade" id="wednesday" role="tabpanel" aria-labelledby="wednesday-tab">
+    <table *ngIf="wednesdayEntries" class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
           <td>Hours</td>
           <td>Hours Type</td>
           <td>Project</td>
+          <td>Date</td>
         </tr>
       </thead>
-      <tbody *ngIf="employees">
-        <tr *ngFor="let employee of employees">
-          <td>{{employee.id }}</td>
-          <td>{{employee.full_name }}</td>
-          <td>{{employee.email }}</td>
+      <tbody>
+        <tr *ngFor="let entry of wednesdayEntries">
+          <td>{{entry.user.full_name }}</td>
+          <td>{{entry.sum / 3600 }}</td>
+          <td>{{entry.time_entry_type.name }}</td>
+          <td>{{entry.project.full_name}}</td>
+          <td>{{entry.date}}</td>
         </tr>
       </tbody>
     </table>
+    <h1 *ngIf="!wednesdayEntries">No Entries</h1>
   </div>
-  <div class="tab-pane fade" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">Thursday
-    <table class="table table-striped">
+  <div class="tab-pane fade" id="thursday" role="tabpanel" aria-labelledby="thursday-tab">
+    <table *ngIf="thursdayEntries" class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
           <td>Hours</td>
           <td>Hours Type</td>
           <td>Project</td>
+          <td>Date</td>
         </tr>
       </thead>
-      <tbody *ngIf="employees">
-        <tr *ngFor="let employee of employees">
-          <td>{{employee.id }}</td>
-          <td>{{employee.full_name }}</td>
-          <td>{{employee.email }}</td>
+      <tbody>
+        <tr *ngFor="let entry of thursdayEntries">
+          <td>{{entry.user.full_name }}</td>
+          <td>{{entry.sum / 3600 }}</td>
+          <td>{{entry.time_entry_type.name }}</td>
+          <td>{{entry.project.full_name}}</td>
+          <td>{{entry.date}}</td>
         </tr>
       </tbody>
     </table>
+    <h1 *ngIf="!thursdayEntries">No Entries.</h1>
   </div>
-  <div class="tab-pane fade" id="friday" role="tabpanel" aria-labelledby="friday-tab">Friday
-    <table class="table table-striped">
+  <div class="tab-pane fade" id="friday" role="tabpanel" aria-labelledby="friday-tab">
+    <table *ngIf="fridayEntries" class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
           <td>Hours</td>
           <td>Hours Type</td>
           <td>Project</td>
+          <td>Date</td>          
         </tr>
       </thead>
-      <tbody *ngIf="employees">
-        <tr *ngFor="let employee of employees">
-          <td>{{employee.id }}</td>
-          <td>{{employee.full_name }}</td>
-          <td>{{employee.email }}</td>
+      <tbody>
+        <tr *ngFor="let entry of fridayEntries">
+          <td>{{entry.user.full_name }}</td>
+          <td>{{entry.sum / 3600 }}</td>
+          <td>{{entry.time_entry_type.name }}</td>
+          <td>{{entry.project.full_name}}</td>
+          <td>{{entry.date}}</td>
         </tr>
       </tbody>
     </table>
+    <h1 *ngIf="!fridayEntries">No Entries</h1>
   </div>
-  <div class="tab-pane fade" id="saturday" role="tabpanel" aria-labelledby="saturday-tab">Saturday
-    <table class="table table-striped">
+  <div class="tab-pane fade" id="saturday" role="tabpanel" aria-labelledby="saturday-tab">
+    <table *ngIf="saturdayEntries" class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
           <td>Hours</td>
           <td>Hours Type</td>
           <td>Project</td>
+          <td>Date</td>          
         </tr>
       </thead>
-      <tbody *ngIf="employees">
-        <tr *ngFor="let employee of employees">
-          <td>{{employee.id }}</td>
-          <td>{{employee.full_name }}</td>
-          <td>{{employee.email }}</td>
+      <tbody>
+        <tr *ngFor="let entry of saturdayEntries">
+          <td>{{entry.user.full_name }}</td>
+          <td>{{entry.sum / 3600 }}</td>
+          <td>{{entry.time_entry_type.name }}</td>
+          <td>{{entry.project.full_name}}</td>
+          <td>{{entry.date}}</td>
         </tr>
       </tbody>
     </table>
+    <h1 *ngIf="!saturdayEntries">No Entries</h1>
   </div>
-  <div class="tab-pane fade" id="sunday" role="tabpanel" aria-labelledby="sunday-tab">Sunday
-    <table class="table table-striped">
+  <div class="tab-pane fade" id="sunday" role="tabpanel" aria-labelledby="sunday-tab">
+    <table *ngIf="sundayEntries" class="table table-bordered">
       <thead class="thead-dark">
         <tr>
           <td>Name</td>
           <td>Hours</td>
           <td>Hours Type</td>
           <td>Project</td>
+          <td>Date</td>          
         </tr>
       </thead>
-      <tbody *ngIf="employees">
-        <tr *ngFor="let employee of employees">
-          <td>{{employee.id }}</td>
-          <td>{{employee.full_name }}</td>
-          <td>{{employee.email }}</td>
+      <tbody>
+        <tr *ngFor="let entry of sundayEntries">
+          <td>{{entry.user.full_name }}</td>
+          <td>{{entry.sum / 3600 }}</td>
+          <td>{{entry.time_entry_type.name }}</td>
+          <td>{{entry.project.full_name}}</td>
+          <td>{{entry.date}}</td>
         </tr>
       </tbody>
     </table>
+    <h1 *ngIf="!sundayEntries">No Entries</h1>
   </div>
 </div>
