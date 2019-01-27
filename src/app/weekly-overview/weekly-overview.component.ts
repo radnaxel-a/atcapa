@@ -60,18 +60,28 @@ export class WeeklyOverviewComponent implements OnInit {
   private setTimeEntries(data): void {
 
     let date;
+    let year;
 
     for (let entry of data) {
       
       date = new Date(entry.date);
+      year = date.getYear().toString().substr(1);
 
-      this.serializeEntry(date.getDay(), entry);
+      entry.date = {
+        day: date.getUTCDate(),
+        month: date.getUTCMonth() + 1 ,
+        year: year,
+        dayOfWeek: date.getUTCDay()
+      }
+      console.log(date);
+      console.log(entry.date);
+      this.serializeEntry(entry);
     }
   }
 
-  private serializeEntry(day, entry): void {
+  private serializeEntry(entry): void {
 
-    switch (day) {
+    switch (entry.date.dayOfWeek) {
       case 0:
         this.sundayEntries.push(entry);
         break;
